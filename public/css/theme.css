@@ -1,0 +1,994 @@
+/* Index Page Start */
+@import url('https://fonts.googleapis.com/css?family=Pirata+One|Rubik:900');
+
+html{
+    scroll-behavior: smooth;
+
+}
+body{
+    padding: 1px;
+    position: relative;
+    padding-bottom: 60px;
+    display: block;
+    min-height: 100vh;
+}
+
+nav{
+    width: 100%;
+    padding: 0;
+    margin: auto;
+    text-align: center;
+}
+nav h2{
+    display: block;
+    justify-content: center;
+    align-items: center;
+    width: 100% ;
+    background-color: #141E30;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    margin: auto;
+    font-family: 'Pirata One', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1.5rem;
+    color: rgb(14, 203, 250);
+    text-align: center;
+    padding-top: 3px;
+    padding-right: 3px;
+    padding-left: 3px;
+    padding-bottom: 0;
+}
+.site-logo{
+    width: auto;
+    margin: auto;
+    text-align: center;
+    padding: 0;
+    display: table-cell;
+    vertical-align: middle;
+}
+.site-logo img{
+    width: 100px;
+}
+nav h2 span{
+    width: max-content;
+}
+nav h2 .sign-btn{
+    width: max-content;
+    background-color: transparent;
+    padding: 0;
+    float: right;
+}
+.sign-btn button{
+    border: 0;
+    font-family: monospace;
+    padding: 0;
+    background-color: whitesmoke;
+    color: rgb(6, 7, 68);
+    border: 1px solid rgb(255, 255, 255);
+    bottom: 0;
+}
+.login-btn{
+    border: 0;
+    font-family: monospace;
+    padding: 0;
+    background-color: whitesmoke;
+    color: rgb(6, 7, 68);
+    border: 1px solid rgb(255, 255, 255);
+    float: left;
+}
+
+.home{rgb(255, 255, 255)
+    float: right;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: medium;
+    font-weight: bold;
+}
+.home-login{
+    position: absolute;
+    width: 100%;
+    max-width: 400px;
+    float: right;
+    font-size: small;
+    bottom: 10px;
+}
+.home-login form{
+    margin: auto;
+    padding: 3px;
+}
+.home-login input[type = text], .home-login input[type = password]{
+    border: 0px;
+    border-radius: 0;
+    background-color: transparent;
+    border-bottom: 1px solid blue;
+    width: 90%;
+    margin: auto;
+    font-size: small;
+    color: goldenrod;
+}
+.loginModal button{
+    margin: auto;
+    margin-right: 10px;
+    float: right;
+    text-align: center;
+}
+main{
+    padding-top: 60px;
+}
+/* nav .h2 {
+    margin: auto;
+    font-family: 'Pirata One', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1.5rem;
+    color: rgb(14, 203, 250);
+    text-align: center;
+    float: left;
+    font-size: xx-large;
+    position: fixed;
+} */
+.fixed-header{
+    position: fixed;
+    margin: auto;
+    text-align: center;
+    width: 100%;
+    background-color: rgba(200, 200, 200, 0.75);
+    z-index: 1;
+}
+.menu-bar{
+    width: 100%;
+    padding-left: 2px;
+    padding-right: 2px;
+    margin: auto;
+}
+.menu-bar button{
+    border: 0;
+    border-radius: 5px;
+    background: rgb(14, 203, 250);
+    max-width: 150px;
+}
+.menu-bar a:first-child{
+    float: left;
+}
+.menu-bar a:last-child{
+    float: right;
+}
+.dash-menu button{
+    background: goldenrod;
+    border: 2px solid goldenrod;
+    border-style: groove;
+    /* padding: 3px; */
+}
+.dash-menu>span{
+    font-size: small;
+    float: right;
+    text-align: right;
+    color: rgb(255, 255, 255);
+    max-width: 50%;
+}
+.first-view{
+    min-height: 100vh;
+    background: linear-gradient(to bottom, rgb(6, 7, 68) 0%,rgb(6, 7, 68) 60vh,whitesmoke 40%);
+    /* background: whitesmoke; */
+}
+.intro{
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    text-align: center;
+    margin-top: 70px;
+    color: white;
+    font-family: monospace;
+    font-size: calc(1em + 1vw);;
+}
+.get-your-link{
+    box-shadow: 1px 1px 3px 3px gold;
+    border: 1px solid goldenrod;
+    background-color: rgb(6, 7, 68);
+}
+.link-btn{
+    margin-top: 20px;
+    text-align: center;
+}
+.link-btn button{
+    margin: auto;
+}
+.we-provide{
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
+    margin-bottom: 100px;
+    text-align: center;
+    font-size: small;
+    margin-top: 20px;
+    font-family: monospace;
+    color: rgb(255, 255, 255);
+}
+.we-provide.animated {
+    animation-duration: 1.5s;
+    animation-iteration-count: 2;
+}
+.how-it-works{
+    width: max-content;
+    margin: auto;
+    text-align: center;
+    margin-top: 15vh;
+    padding-left: 10px;
+    padding-right: 10px;
+    background: rgba(10, 83, 133, 0.75);
+    border-radius: 20px;
+    color: #ffffff;
+    font-size: calc(1em + 1vw);
+    cursor: pointer;
+    font-style: italic;
+}
+.how-it-works a{
+    color: white;
+}
+.how-it-works a:hover{
+    text-decoration: none;
+}
+.second-view{
+    height: 100vh;
+    padding-top: 100px;
+}
+.second-view .row div{
+    margin-bottom: 20px;
+    text-align: center;
+    /* margin: auto; */
+}
+.second-view .row div div:nth-child(2){
+    width: 70%;
+    margin: auto;
+}
+.img-div{
+    height: 30vh;
+}
+.second-view img{
+    width: 70%;
+    height: 100%;
+}
+.share-img{
+    border-radius: 50%;
+}
+footer {
+    position: absolute;
+    /* margin-top: 100vh; */
+    bottom: 0px;
+    height: 50px;
+    width: 100%;
+    text-align: center;
+    background: #141E30;
+    color: rgb(255, 255, 255);
+    padding-top: 20px;
+    /* margin-bottom: 60px; */
+}
+/* Index Page End */
+
+
+/* Login Page Start */
+
+.login-form{
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.login-form h4{
+    margin-bottom: 60px;
+}
+
+.login-form input[type = text], .login-form input[type = password]{
+    border: 0;
+    border-radius: 0;
+    border-bottom: 2px solid ;
+    font-size: small;
+}
+.login-form button{
+    float: right;
+}
+/* Login Page End */
+
+/* SignUp Page Start */
+.signup-form{
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.signup-form h4{
+    margin-bottom: 60px;
+}
+
+.signup-form input[type = text], .signup-form input[type = password]{
+    border: 0;
+    border-radius: 0;
+    border-bottom: 2px solid ;
+    font-size: small;
+}
+.signup-form button{
+    float: right;
+}
+/* SignUp Page End */
+
+/* Verify Page Starts */
+
+
+.verify-email{
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+    margin-top: 100px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+/* Verify Page Ends */
+
+
+/* Forgot Page Starts */
+
+.forgot-form{
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
+    margin-top: 150px;
+    font-size: small;
+    padding: 5px;
+}
+.forgot-form h6{
+    margin-bottom: 50px;
+    font-weight: bold;
+    color: blue;
+}
+.reset-form button{
+    margin: auto;
+}
+/* Forgot Page Ends */
+
+/* Reset Page Starts */
+
+.reset-form{
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
+    margin-top: 150px;
+    font-size: small;
+    padding: 5px;
+}
+.reset-form h6{
+    margin-bottom: 50px;
+    font-weight: bold;
+    color: blue;
+}
+.reset-form button{
+    margin: auto;
+}
+
+/* Reset Page Ends */
+/* Dashboard Page Start */
+
+button.logout{
+    float: right;
+    width: auto;
+    font-family: monospace;
+    padding: 0;
+    background-color: rgb(38, 40, 155);
+    border: 1px solid rgb(255, 255, 255);
+}
+.dashbody{
+    background: white;
+    min-height: 100vh;
+    display: block;
+    padding: 1px;
+    position: relative;
+}
+.dashbody main{
+    padding-top: 10px;
+    padding-bottom: 80px;
+}
+.dash-header{
+    width: 100%;
+    /* background: rgba(200, 200, 200, 0.75); */
+    height: auto;
+    padding-top: 30px;
+    padding-bottom: 10px;
+    display: block;
+}
+.copy-btn{
+    width: max-content;
+    max-width: 33.3%;
+    float: left;
+    color: rgb(255, 255, 255);
+    border: 1px solid rgb(255, 255, 255);
+    font-family: monospace;
+    font-size: calc(.3vw + .3em);
+    padding: 0;
+    float: left;
+    background-color: rgb(38, 40, 155);
+}
+@-webkit-keyframes greenPulse {
+    from { background-color: #e0f006; -webkit-box-shadow: 2px 0 2px 2px #e0f006; }
+    50% { background-color: #d8e617; -webkit-box-shadow: 1px 0 1px 0px #d8e617; }
+    to { background-color: #f7f308; -webkit-box-shadow: 2px 0 2px 0px #f7f308; }
+}
+.glow {
+    -webkit-animation-name: greenPulse;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-iteration-count: infinite;
+}
+.username{
+    width: 100%;
+    text-align: right;
+    color: rgb(14, 203, 250);
+    font-size: small;
+    float: right;
+}
+.open-link{
+    width: 100%;
+}
+.open-link h6{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: teal;
+}
+.open-link p{
+    font-size: small;
+    background: rgb(228, 195, 135);
+    color: #ffffff;
+    overflow: hidden;
+    width: 40vw;
+}
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100vh; /* Full height */
+    overflow-y: scroll; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  /* Modal Content */
+  .modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 400px;
+    height: auto;
+    overflow-y: scroll;
+    max-width: 90%;
+    border: 1px solid goldenrod;
+  }
+  .logoutModal h5{
+      color: rgb(14, 203, 250);
+  }
+.proceed {
+    margin-top: 50px;
+}
+.proceed label{
+    color: rgb(14, 203, 250);
+}
+.proceed button{
+    float: right;
+}
+.proceed-logout{
+    /* background: white; */
+    color: rgb(255, 255, 255);
+    bottom: 0;
+    float: right;
+}
+.logout-cancel{
+    background-color: rgb(255, 255, 255);
+    float: left;
+    color: rgb(14, 203, 250);
+}
+.open-contribs{
+    /* display: none; */
+    width: 100%;
+}
+.open-contribs h6{
+    margin-top: 30px;
+    color: rgb(0, 132, 255);
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.open-numbering{
+    background-color: rgb(0, 132, 255);
+    width: max-content;
+    padding: 2.5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    /* border: 1px solid blue; */
+    border-radius: 50%;
+    color: white;
+    font-size: small;
+}
+
+.closed-contribs{
+    display: none;
+    width: 100%;
+}
+.closed-contribs h6{
+    margin-top: 30px;
+    color: rgb(0, 132, 255);
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.open-intro{
+
+}
+.open-intro div{
+    margin-bottom: 50px;
+    box-shadow: 2px 1px 2px 1px gold;
+    width: 80%;
+    max-width: 300px;
+    margin: auto;
+    margin-bottom: 50px;
+    min-height: 30vh;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.open-intro div p{
+    width: 80%;
+    max-width: 200px;
+    margin: auto;
+    text-align: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: rgb(6, 7, 68);
+}
+.comment-container{
+    width: 100%;
+    margin: auto;
+    /* text-align: center; */
+}
+.comment-container .comment{
+    width: 95%;
+    max-width: 400px;
+    min-height: 20vh;
+    margin: auto;
+    margin-top: 10px;
+    /* background-color: rgb(0, 132, 255); */
+    font-size: medium;
+    font-family: monospace;
+    padding-left: 2px;
+    padding-top: 2px;
+    box-shadow: 1px 0px 1px 1px rgb(14, 203, 250);
+    /* border-radius: 20px; */
+    color: rgb(0, 132, 255);
+}
+.comment-container .comment:hover{
+    box-shadow: 2px 0px 2px 2px rgb(14, 203, 250);
+}
+.commenter{
+    color: goldenrod;
+    font-weight: bold;
+}
+/* .comment:nth-of-type(odd) p{
+    color: black;
+}
+.comment:nth-of-type(even) p{
+    color: black;
+} */
+
+.comment-container .comment:nth-of-type(odd){
+    background-color: rgb(6, 7, 68);
+    color: rgb(255, 255, 255);
+}
+.comment-container .comment:nth-of-type(even){
+    background-color: rgb(255, 255, 255);
+    color: blue;
+}
+.comments{
+    /* color: black; */
+}
+
+.chartContainer{
+    display: block;
+}
+
+.tab.animated {
+    animation-duration: 2.5s;
+    animation-iteration-count: infinite;
+}
+.tab-nav-container.animated{
+    animation-duration: 2.5s;
+}
+
+  .tab-nav-container {
+    background-color: rgb(255, 255, 255);
+    border-top-right-radius: 30px;
+    border-top-left-radius: 30px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    display: flex;
+    justify-content: space-between;
+    padding: 0px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    z-index: 2;
+}
+
+  .tab {
+    background-color: #22a6ce;
+    border-radius: 30px;
+    cursor: pointer;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 ;
+    margin: 0;
+    transition: background 0.4s linear;
+    min-height: 50px;
+    font-size: small;
+}
+
+.tab span {
+    font-weight: normal;
+    overflow: hidden;
+    color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 0;
+    /* max-width: 0; */
+}
+
+.tab.active span {
+    margin-left: 10px;
+    max-width: 200px;
+    transition: max-width 0.4s linear;
+    color: rgb(255, 255, 255);
+}
+
+.tab.active.purple {
+    background-color: goldenrod;
+    color: rgba(91, 55, 183, 1);
+}
+
+.tab.active.pink {
+    background-color: cadetblue;
+    color: rgba(201, 55, 157, 1);
+}
+.open-contrib-date{
+    color: gold;
+    margin-bottom: 0;
+    position: absolute;
+    float: right;
+    width: max-content;
+}
+/* Dashboard Page Ends */
+
+/* Open Reply Page Start */
+
+.openBody{
+    padding: 1px;
+    padding-bottom: 20px;
+}
+.open-opinion{
+    width: 98%;
+    max-width: 400px;
+    margin: auto;
+    margin-top: 100px;
+    text-align: center;
+}
+.open-opinion h6{
+    font-style: italic;
+    font-family: monospace;
+}
+.open-opinion textarea{
+    margin: auto;
+    text-align: center;
+    width: 95%;
+}
+.open-appreciation{
+    width: 98%;
+    max-width: 400px;
+    margin: auto;
+    margin-top: 40px;
+    text-align: center;
+    font-family: monospace;
+}
+/* Open Reply Page End */
+
+/* Closed Reply Page Start */
+
+.close-intro{
+    margin: auto;
+    margin-top: 50px;
+}
+.block{
+    text-align: center;
+    vertical-align: middle;
+    margin-bottom: 10px;
+}
+.circle{
+    background: rgb(179, 255, 0);
+    border-radius: 200px;
+    box-shadow: 2px 0px 2px 2px grey;
+    color: rgb(33, 54, 170);
+    height: 150px;
+    width: 150px;
+    margin: auto;
+}
+.circle span{
+    display: table-cell;
+    font-size: small;
+    padding-top:20%;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+.circle-open{
+    width: 130px;
+    height: 130px;
+    background: rgb(6, 7, 68);
+    color: rgb(255, 255, 255);
+    box-shadow: none;
+    margin-top: 20px;
+    border: 3px solid goldenrod;
+    border-style: dotted;
+    font-weight: bold;
+    font-family: monospace;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.close-proceed{
+    margin-top: 50px;
+    padding-bottom: 50px;
+}
+.close-proceed button{
+    float: right;
+}
+.skills{
+    width: 95%;
+    margin: auto;
+    text-align: center;
+}
+.skills div{
+    width: 80%;
+    border-radius: 20px;
+    min-height: 20vh;
+    margin: auto;
+    /* margin-left: 8px;
+    margin-right: 8px; */
+    margin-bottom: 10px;
+    text-align: center;
+    font-weight: bold;
+    font-family: monospace;
+    padding-top: 10px;
+    cursor: pointer;
+}
+.skills div:nth-of-type(odd){
+    background-color: rgb(6, 7, 68);
+    /* border: 4px solid blue; */
+}
+.skills div:nth-of-type(odd) .skill-list{
+    color: goldenrod;
+}
+.skills div:nth-of-type(odd) .length-list{
+    color: rgb(255, 255, 255);
+    font-size: xx-large;
+    float: right;
+    margin-top: 20px;
+}
+
+.skills div:nth-of-type(even){
+    background-color: goldenrod;
+    /* border: 4px solid goldenrod; */
+}
+.skills div:nth-of-type(even) .skill-list{
+    color: blue;
+}
+.skills div:nth-of-type(even) .length-list{
+    color: rgb(255, 255, 255);
+    font-size: xx-large;
+    float: right;
+    margin-top: 20px;
+}
+/* .skills div:nth-of-type(3){
+    background-color: mediumturquoise;
+} */
+
+/* Closed Reply Page End */
+
+/* Enter Skills Page */
+
+.skillbody{
+
+}
+.skillbody h6{
+    font-family: monospace;
+    font-weight: bold;
+}
+.skillbody span{
+    font-size: small;
+    font-style: italic;
+}
+.enter-skill{
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    margin: auto;
+    margin-top: 20px;
+}
+.skill-field{
+    margin: auto;
+    padding-top: 10px;
+}
+.skill-field input {
+    width: 80%;
+}
+button.remove{
+    border: none;
+    font-size: x-large;
+    color: red;
+    background-color: white;
+}
+.add-field{
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
+    margin-top: 20px;
+}
+.add-field button{
+    float: right;
+    background-color: rgb(6, 7, 68);
+    border-radius: 50%;
+    border: 0;
+    color: gold;
+    font-size: x-large;
+}
+.done{
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
+    text-align: center;
+}
+.done button{
+    margin: auto;
+}
+.upload-skill button{
+    width: max-content;
+    float: right;
+}
+.cancel-skill button{
+    width: max-content;
+    float: left;
+}
+.upload-success{
+    margin: auto;
+    margin-top: 50px;
+    width: 100%;
+    max-width: 500px;
+    /* box-shadow: 2px 0px 2px 0px gray; */
+    /* border-radius: 20px; */
+    /* height: max-content; */
+    font-size: small;
+}
+.upload-success button{
+    margin-top: 20px;
+    float: right;
+}
+/* Enter Skills Page */
+
+/* Selected Reply Page Start */
+
+/* body, html{
+  height: 100%;
+  background: #222222;
+	font-family: 'Lato', sans-serif;
+} */
+
+/* .container{
+  display: block;
+  position: relative;
+  margin: 40px auto;
+  height: auto;
+  width: 500px;
+  padding: 20px;
+} */
+
+.select-list{
+    max-width: 500px;
+    margin: auto;
+}
+.select-list h6{
+    font-size: large;
+    font-family: monospace;
+}
+.select-list ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+	overflow: auto;
+}
+
+.select-list ul li{
+  color: goldenrod;
+  display: block;
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 100px;
+	border-bottom: 1px solid rgb(6, 7, 68);
+}
+
+.select-list ul li input[type=radio]{
+  position: absolute;
+  visibility: hidden;
+}
+
+.select-list ul li label{
+  display: block;
+  position: relative;
+  font-weight: bolder;
+  font-size: .8em;
+  padding: 25px 25px 25px 80px;
+  margin: 10px auto;
+  height: 30px;
+  z-index: 9;
+  cursor: pointer;
+  -webkit-transition: all 0.25s linear;
+}
+
+.select-list ul li:hover label{
+	color: rgb(0, 132, 255);
+}
+
+.select-list ul li .check{
+  display: block;
+  position: absolute;
+  border: 5px solid #AAAAAA;
+  border-radius: 100%;
+  height: 25px;
+  width: 25px;
+  top: 30px;
+  left: 20px;
+	z-index: 5;
+	transition: border .25s linear;
+	-webkit-transition: border .25s linear;
+}
+
+.select-list ul li:hover .check {
+  border: 5px solid rgb(0, 132, 255);
+}
+
+.select-list ul li .check::before {
+  display: block;
+  position: absolute;
+	content: '';
+  border-radius: 100%;
+  height: 15px;
+  width: 15px;
+  top: 5px;
+	left: 5px;
+  margin: auto;
+	transition: background 0.25s linear;
+	-webkit-transition: background 0.25s linear;
+}
+
+.select-list input[type=radio]:checked ~ .check {
+  border: 5px solid rgb(6, 7, 68);
+}
+
+.select-list input[type=radio]:checked ~ .check::before{
+  background: goldenrod;
+}
+
+.select-list input[type=radio]:checked ~ label{
+  color: rgb(6, 7, 68);
+}
+.selected-submit{
+    float: right;
+    margin-top: 30px;
+}
+.selected-appreciation{
+    width: 98%;
+    max-width: 400px;
+    margin: auto;
+    margin-top: 40px;
+    text-align: center;
+    font-family: monospace;
+}
+/* Selected Reply Page Ends */

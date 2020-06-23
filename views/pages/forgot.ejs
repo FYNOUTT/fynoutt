@@ -1,0 +1,39 @@
+<!-- views/login.ejs -->
+<!doctype html>
+<html>
+    <head>
+        <head>
+            <%- include('../partials/head.ejs') -%>
+        </head>
+    </head>
+    <body <!--style="background-image: url('/imgs/bg1.jpg'); background-repeat: no-repeat; background-size: 100%; vertical-align: middle; background-position: 50% 50%; opacity: .5;"-->>
+        <div>
+            <%- include('../partials/header.ejs') -%>
+        </div>
+        <main>
+            <div class="forgot-form">
+                <% if (errorMessage.length > 0) { %>
+                    <div class="alert alert-danger"><%= errorMessage %></div>
+                <% } %>
+                <% if (infoMessage.length > 0) { %>
+                    <div class="alert alert-success"><%= infoMessage %></div>
+                <% } %>
+                <center>
+                    <h6>
+                        Reset Your Password
+                    </h6>
+                </center>
+                <form action="/forgot" method="post">
+                    <div class="form-group">
+                        <label>Enter Your Email:</label>
+                        <input class="form-control" type="text" name="email" id="email" placeholder="Enter your email" autofocus required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-sm">Reset Password</button>
+                </form>
+            </div>
+        </main>
+    </body>
+    <script>
+        
+    </script>
+</html>

@@ -1,0 +1,29 @@
+<nav class="">
+    <h2 class="h2">
+      <%if (isLoggedIn) { %>
+        
+        <% }else {%>
+            <button class="btn btn-primary btn-md login-btn" id="login-modal-btn">Login</button>
+        <% } %>
+
+
+      <a href="/"> <span class="site-logo"><img src="/imgs/fynoutt_rm.png" alt=""></span> </a>
+
+
+      <%if (isLoggedIn) { %>
+        
+      <% }else {%>
+          <a href="/signup" class="btn btn-primary btn-sm sign-btn">
+              <button class="btn-primary btn-md">Sign Up</button>
+          </a>
+      <% } %>
+    </h2>
+  <!-- <form class="form-inline my-1">
+    <div class="md-form form-sm my-0">
+      <input class="form-control form-control-sm mr-sm-2 mb-0 home-search" type="search" placeholder="#Hashtags"
+        aria-label="Search">
+    </div>
+    <button class="btn btn-outline-white btn-sm my-0 search-btn" type="submit">Search</button>
+  </form> -->
+  <!-- <span class="home"><a href="/">home</a></span> -->
+</nav>

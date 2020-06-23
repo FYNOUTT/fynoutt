@@ -1,0 +1,71 @@
+<!-- views/openreply.ejs -->
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initialscale=1">
+        <title></title>
+        <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
+        <!-- <link rel="stylesheet" type="text/css" href="../../css/fontawesome.min.css"> -->
+        <link rel="stylesheet" type="text/css" href="../../css/theme.css">
+        <link rel="stylesheet" type="text/css" href="../../css/animate.min.css">
+    </head>
+    <body class="openBody">
+        <div>
+            <div>
+                <%- include('../partials/header2.ejs') -%>
+            </div>
+            <main>
+                <div class="open-opinion">
+                    <center>
+                        <h6>
+                            Hello <%= me.firstname %>. What Do You Think I <span style="color: goldenrod;">"<%= user.firstname%> <%= user.lastname%>"</span> Am Good At Or Should Go For?
+                        </h6>
+                    </center>
+                    <div id="open_form">
+                        <textarea name="opinion" id="opinion" cols="30" rows="5"></textarea>
+                        <button id="open-submit" class="btn btn-primary btn-md">
+                            Submit Your Reply
+                        </button>
+                    </div>
+                </div>
+                <div class="open-appreciation" id="open-appreciation" style="display: none;">
+                    Thank you <%= me.firstname %> for your contribution. <br>
+                    Don't miss out on the experience. Get your link and share to friends now.
+
+                    <p style="margin: auto; margin-top: 30px; text-align: center; width: max-content;">
+                        <a href="/dashboard">
+                            <button class="btn btn-primary btn-md" style="margin: auto; text-align: center;">
+                                Get Link
+                            </button>
+                        </a>
+                    </p>
+                </div>
+            </main>
+        </div>
+        <!-- <footer>
+            <%- include('../partials/footer.ejs') -%>
+        </footer>> -->
+    </body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <script>
+        document.getElementById('open-submit').onclick = function(){
+            if(document.getElementById('opinion').value.trim().length === 0){
+                alert("Write Something Please?");
+            }else{
+                axios.post('/openSubmit/<%= user.id %>',{
+                    opinion:    document.getElementById('opinion').value
+                }).then((res) => {
+                    if(res.data.success === true){
+                        document.getElementById('open-appreciation').style.display = 'block';
+                        document.getElementById('open-submit').style.display = 'none';
+                        document.getElementById('opinion').value = "";
+                    }
+                }).catch((err) => {
+
+                });
+            }
+        }
+    </script>
+</html>

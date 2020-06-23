@@ -1,0 +1,42 @@
+<!-- views/signup.ejs -->
+<!doctype html>
+<html>
+    <head>
+        <%- include('../partials/head.ejs') -%>
+    </head>
+    <body>
+        <div>
+            <%- include('../partials/header2.ejs') -%>
+        </div>
+        <main>
+            <div class="container">
+                <center><h4 style="font-family: monospace; color: blue;"> SignUp </h4></center>
+
+                <center>
+                    <% if (sendTokenMessage.length > 0) { %>
+                        <div class="alert alert-success"><%= sendTokenMessage %></div>
+                    <% } %>
+                </center>
+                <center>
+                    <% if (sendTokenError.length > 0) { %>
+                        <div class="alert alert-danger"><%= sendTokenError %></div>
+                    <% } %>
+                </center>
+                <div class="verify-email">
+                    <form action="/sendToken" method="post">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="text" class="form-control" name="email" placeholder="Enter Your Email." required>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-sm">
+                            Continue
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <%- include('../partials/footer.ejs') -%>
+        </footer>
+    </body>
+</html>

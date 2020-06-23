@@ -1,0 +1,392 @@
+<!-- views/login.ejs -->
+<!doctype html>
+<html>
+    <head>
+        <head>
+            <%- include('../partials/head.ejs') -%>
+        </head>
+    </head>
+    <body>
+        <div class="dashbody">
+            <div>
+                <%- include('../partials/header3.ejs') -%>
+            </div>
+            <div class="dash-header" id="dash-header">
+            </div>
+            <main>
+                <div class="">
+                    <div id="logoutModal" class="modal logoutModal">
+    
+                        <!-- Modal content -->
+                        <div class="modal-content logout-modal">
+                            <span class="close">&times;</span>
+                            <center> <h5>Logout</h5> </center>
+                            <div>
+                                <center>
+                                    Are you sure you want to logout from your account? <br>
+                                    You'd have to login again, on your next attempt to access the platform
+                                </center>
+    
+                            </div>
+
+                            <div class="" id="" style="margin-top: 50px;">
+                                <button class="btn btn-primary btn-md logout-cancel" id="logout_cancel" >
+                                    Cancel
+                                </button>
+                                <a href="/logout">
+                                    <button name="proceed_logout" class="btn btn-primary proceed-logout">
+                                        Logout
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+                    
+                    </div>
+                    <div id="copyModal" class="modal copyModal">
+    
+                        <!-- Modal content -->
+                        <div class="modal-content copy-modal">
+                            <span class="close">&times;</span>
+                            <center> <h5 style="color: goldenrod;">Link Copied</h5> </center>
+                            <div>
+                                <center>
+
+                                    <p>Your link for the <span id="copy-name">Open Ended</span> Contribution has been copied to clipboard.</p>
+                                    <p>You can now paste the link/share it to your friends on social media or wherever, and get their responses.</p>
+
+                                </center>
+                            </div>
+                        </div>
+                    
+                    </div>
+                    <div id="skillModal" class="modal skillModal">
+    
+                        <!-- Modal content -->
+                        <div class="modal-content skill-modal">
+                            <span class="close">&times;</span>
+                            <center> <h5>Contributors</h5> </center>
+                            <div>
+                                <center>
+                                    
+                                    <h6>
+                                        <% for(i=0; i<user.skillset.length; i++){ %>
+                                            <span style="color: blue; display: none;" class="skill-name" id="skill-name<%= i %>" >Those who selected  <%= user.skillset[i] %> </span>
+                                        <% } %>
+                                    </h6>    
+                                </center>
+                            
+                                <center>
+                                    <p id="skill-selectors">
+                                        <% for(i=0; i<selectors.length; i++){ %>
+                                            <div id="selector<%=i%>" class="selector" style="display: none;" >
+                                                <% if(selectors[i].length === 0){ %>
+                                                    <div>
+                                                        <center>
+                                                            Nobody has selected this option
+                                                        </center>
+                                                    </div>
+                                                <% }else{ %>
+                                                    <ol>
+                                                        <% selectors[i].forEach(selector => {%>
+                                                            <li style="margin-top: 10px;">
+                                                                <%= selector %>
+                                                            </li>
+                                                        <% }) %>
+                                                    </ol>
+                                                <% } %>
+                                            </div>
+                                        <% } %>
+                                    </p>
+                                </center>
+                            </div>
+                        </div>
+                    
+                    </div>
+                    <!-- <div class="username"><%= user.firstname %> <%= user.lastname %> <%= user.others %></div> -->
+    
+                    <div class="open-contribs" id="open-contribs">
+                        <center><h6>Open Ended Contributions</h6></center>
+                        <hr/>
+
+                        <% if(user.open_contribs.length > 0){ %>
+                            <div class="comment-container row">
+                                <% for(i=0; i<contributors.length; i++){ %>
+                                    <div class="comment animated slideInLeft col-md-6">
+                                        <div class="open-numbering">
+                                            <%= i + 1 %>
+                                        </div>
+                                        <div class="commenter" style="font-size: large;">By <%= contributors[i] %></div>
+                                        <div class="comments"><%= user.open_contribs[i].contribution %></div>
+                                        <div class="open-contrib-date"><%= user.open_contribs[i].timeOfContrib.getDate()%>-<%= user.open_contribs[i].timeOfContrib.getMonth() %>-<%= user.open_contribs[i].timeOfContrib.getFullYear() %> <%= user.open_contribs[i].timeOfContrib.toLocaleTimeString() %></div>
+                                    </div>
+                                <% }; %>
+                            </div>
+                        <% }else{ %>
+                            <div class="container animated slideInRight">
+                                <div class="row open-intro">
+                                  
+                                    <div class="col-md-4 block">
+                                        <p class="" align="center"><span>The two sections of this platform (Open and Selected), provides you with two unique links.</span></p>
+                                    </div>
+                                      
+                                    <div class="col-md-4 block">
+                                        <p class="" align="center"><span>The link for the "Open Section", lets your friends write whatever they feel.</span></p>
+                                    </div>
+                                  
+                                    <div class="col-md-4 block">
+                                        <p class="" align="center"><span> The link for the "Selected Section", lets your friends select an option from your list of skills/interests</span></p>
+                                    </div>
+                                    <div class="col-md-4 block">
+                                        <p class="" align="center"><span> You can get the link for either section at the top of either sections respectively. ( <i>See Navigation menu below</i> )</span></p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        <% } %>
+
+                    </div>
+                    <div class="closed-contribs" id="closed-contribs">
+                        <center><h6>Selected Contributions</h6></center>
+                        <hr/>
+                        <% if(user.skillset.length === 0){ %>
+                            <div class="container animated slideInRight">
+                                <div class="row">
+                                  
+                                      <div class="col-md-4 block">
+                                        <p class="circle" align="center"><span>This section let's you state your skill set, and share the link to your friends to select any.</span></p>
+                                    </div>
+                                      
+                                      <div class="col-md-4 block">
+                                          <p class="circle" align="center"><span>Just click the proceed button and have this section setup.</span></p>
+                                    </div>
+                                  
+                                      <div class="col-md-4 block">
+                                          <p class="circle" align="center"><span> You only have to enter your skills/interests to get going...</span></p>
+                                    </div>
+                              
+                                </div>
+                                <div class="close-proceed">
+                                    <a href="/dashboard/setskills">
+                                        <button class="btn btn-primary btn-sm" id="skill_proceed">Proceed</button>
+                                    </a>
+                                    
+                                </div>
+                            </div>
+                        <% }else{ %>
+    
+                            <div class="row skills animated slideInRight">
+                                <% for(i=0; i<user.skillset.length; i++){ %>
+                                    <div class="col-md-2 myskill" id="<%= i %>">
+                                        <span class="skill-list"> <%= user.skillset[i] %> </span>
+                                        <p class="length-list"><%= selectArr[i].length %></p>
+                                    </div>
+                                    
+                                <% } %>
+                            </div>
+    
+                        <% } %>
+                    </div>
+                    <% if(user.skillset.length > 0){ %>
+                        <div id="chartContainer" class="chartContainer animated zoomIn" style="height: 300px; width: 100%; margin-top: 100px;"></div>
+                    <% } %>
+                </div>
+                <div class="tab-nav-container animated bounceInDown">
+                    <div class="tab active purple animated bounce open">
+                        <span><i>Open Contributions</i></span>
+                    </div>
+                    <div class="tab pink bounce closed">
+                        <span><i>Selected Contributions</i></span>
+                    </div>
+                </div>
+            </main>
+    </body>
+    <footer>
+        <%- include('../partials/footer.ejs') -%>
+    </footer>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <script>
+
+        
+        window.onload = function () {
+
+
+            var logout_modal      = document.getElementById("logoutModal");
+
+            // Get the button that opens the modal
+            var logout_btn = document.getElementById("logout-modal-btn");
+
+            // Get the <span> element that closes the modal
+            var span1 = document.getElementsByClassName("close")[0];
+
+            // When the user clicks the button, open the modal 
+            logout_btn.onclick = function() {
+                logout_modal.style.display = "block";
+            }
+            // When the user clicks on <span> (x), close the modal
+            span1.onclick = function() {
+                logout_modal.style.display = "none";
+            }
+            document.getElementById("logout_cancel").onclick = function(){
+                logout_modal.style.display = "none";
+            };
+
+
+
+
+
+            var copy_modal      = document.getElementById("copyModal");
+
+            // Get the button that opens the modal
+            var copy_btn = document.getElementById("copy-btn");
+
+            // Get the <span> element that closes the modal
+            var span2 = document.getElementsByClassName("close")[1];
+
+            // When the user clicks the button, open the modal 
+            copy_btn.onclick = function() {
+                document.getElementById('copy-value').style.display = 'block';
+                copyText = document.getElementById('copy-value');
+                copyText.select();
+                copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+
+                /* Copy the text inside the text field */
+                document.execCommand("copy");
+
+                /* Alert the copied text */
+                copy_modal.style.display = "block";
+                document.getElementById('copy-value').style.display = 'none';
+            }
+            // When the user clicks on <span> (x), close the modal
+            span2.onclick = function() {
+                copy_modal.style.display = "none";
+            }
+            document.getElementById("logout_cancel").onclick = function(){
+                logout_modal.style.display = "none";
+            };
+
+
+
+            var skill_modal      = document.getElementById("skillModal");
+
+            // Get the <span> element that closes the modal
+            var span3 = document.getElementsByClassName("close")[2];
+
+            // When the user clicks the button, open the modal 
+            document.querySelectorAll('.myskill').forEach(elt => {
+                elt.onclick = function(){
+                    for(i=0; i<"<%= user.skillset.length %>"; i++){
+                        document.querySelectorAll('.skill-name').forEach(skill => {
+                            skill.style.display = 'none';
+                        })
+                    }
+                    document.getElementById("skill-name"+this.id).style.display = 'block';
+                    for(i=0; i<"<%= user.skillset.length %>"; i++){
+                        document.querySelectorAll('.selector').forEach(selector => {
+                            selector.style.display = 'none';
+                        })
+                    }
+                    document.getElementById("selector"+this.id).style.display = 'block';
+                    skill_modal.style.display = 'block';
+                }
+            })
+            // When the user clicks on <span> (x), close the modal
+            span3.onclick = function() {
+                skill_modal.style.display = "none";
+            }
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+                if (event.target == logout_modal || event.target == copy_modal || event.target == skill_modal) {
+                    logout_modal.style.display = "none";
+                    copy_modal.style.display = "none";
+                    skill_modal.style.display = "none";
+                }
+            }
+
+
+
+
+
+            // Get all the tabs
+            const tabs = document.querySelectorAll('.tab');
+
+            tabs.forEach(clickedTab => {
+                
+                // Add onClick event listener on each tab
+                clickedTab.addEventListener('click', () => {
+                    // Remove the active class from all the tabs (this acts as a "hard" reset)
+                    tabs.forEach(tab => {
+                        tab.classList.remove('active');
+                        tab.classList.remove('animated');
+                    });
+
+                    // Add the active class on the clicked tab
+                    clickedTab.classList.add('active');
+                    clickedTab.classList.add('animated');
+                    const clickedTabBGColor = getComputedStyle(clickedTab).getPropertyValue('color');
+                    // document.body.style.background = clickedTabBGColor;
+                    
+                    if(clickedTab.classList.contains('open')){
+                        document.getElementById('closed-contribs').style.display = 'none';
+                        document.getElementById("copy-btn").textContent = "Copy Open Link";
+                        document.getElementById('open-contribs').style.display = 'block';
+                        document.getElementById('copy-value').value = 'localhost:3000/open/<%= user.id %>';
+                        document.getElementById('copy-name').textContent = 'Open Ended';
+                        // document.getElementById('chartContainer').style.display = 'none';
+                    }else{
+                        document.getElementById('open-contribs').style.display = 'none';
+                        document.getElementById("copy-btn").textContent = "Copy Selected Link";
+                        document.getElementById('closed-contribs').style.display = 'block';
+                        document.getElementById('copy-value').value = 'localhost:3000/selected/<%= user.id %>';
+                        document.getElementById('copy-name').textContent = 'Selected';
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                        // document.getElementById('chartContainer').style.display = 'block';
+                        // document.getElementById('dash-header').style.display = 'none';
+                    }
+                });
+            });
+
+
+
+            var skillList = new Array();
+            var lengthList = new Array();
+            document.querySelectorAll('.skill-list').forEach(skill =>{
+                skillList.push(skill.textContent);
+            });
+            document.querySelectorAll('.length-list').forEach(length =>{
+                lengthList.push(length.textContent);
+            });
+
+            var selectPoints = new Array();
+
+            
+            for(i=0; i<skillList.length; i++){
+                var index = {y: parseInt(lengthList[i].trim()), label: skillList[i].trim()};
+                selectPoints.push(index);
+            }
+            
+            var chart = new CanvasJS.Chart("chartContainer", {
+                animationEnabled: true,
+                
+                title:{
+                    text:"Analysis of your friends' opinions (Selected Contributions)"
+                },
+                axisX:{
+                    interval: 1
+                },
+                axisY2:{
+                    interlacedColor: "rgba(1,77,101,.2)",
+                    gridColor: "rgba(1,77,101,.1)",
+                    title: "Number of Selections"
+                },
+                data: [{
+                    type: "bar",
+                    name: "skills",
+                    axisYType: "secondary",
+                    color: "#014D65",
+                    dataPoints: selectPoints
+                }]
+            });
+            chart.render();
+        }
+    </script>
+</html>

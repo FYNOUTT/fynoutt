@@ -1,0 +1,178 @@
+<!doctype html>
+<html>
+    <head>
+        <head>
+            <%- include('../partials/head.ejs') -%>
+            <link rel="stylesheet" type="text/css" href="../css/animate.min.css">
+        </head>
+    </head>
+    <body>
+        <div class="skillbody animated zoomIn">
+            <div>
+                <%- include('../partials/header2.ejs') -%>
+            </div>
+            <!-- <div class="dash-header">
+                <div class="logout">
+                    <button class="btn btn-primary btn-sm logout" id="logout-modal-btn">
+                        logout
+                    </button>
+                </div>
+            </div> -->
+
+            <main>
+                <center>
+                    <h6>Enter your skills or things that interest you.</h6> <br>
+                    <span>(Use the green button to add more fields)</span>
+                </center>
+                <div class="enter-skill" id="enter-skill">
+                    <div class="skill-field">
+                        <span><input type="text" id="skill"></span>    
+                        <button class="remove" id="remove">&cross;</button>
+                    </div>
+                    <div class="skill-field">
+                        <span><input type="text" id="skill"></span>    
+                        <button class="remove" id="remove">&cross;</button>
+                    </div>
+                </div>
+                <div class="add-field" id="add-field">
+                    <button>&plus;</buttlogouton>
+                </div>
+                <div class="done">
+                    <button class="btn btn-primary btn-md" id="setskill-modal-btn">
+                        Set SkillSet
+                    </button>
+                </div>
+                <div class="upload-success" id="upload-success" style="display: none;">
+                    You have successfully set you skillset you can always edit/change it if you wish.
+                    <p><a href="/dashboard"><button class="btn btn-primary btn-sm">Return to dashboard</button></a></p>
+                </div>
+                <div id="setskillModal" class="modal setskillModal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content setskill-modal">
+                        <span class="close">&times;</span>
+                        <center><h6>You are about to upload the following as your skillset</h6></center>
+                        <div class="skill-list">
+                            <ol>
+
+                            </ol>
+                        </div>
+
+                        <div class="">
+                            <button class="btn btn-default btn-sm" style="float: left;" id="cancel-skill">
+                                Cancel
+                            </button>
+                            <button class="btn btn-primary btn-md" id="upload-skill" style="float: right;">
+                                Upload
+                            </button>
+                        </div>
+                    </div>
+                
+                </div>
+            </main>
+        </div>
+    </body>
+        <footer>
+            <%- include('../partials/footer.ejs') -%>
+        </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <script>
+
+        var setskill_modal      = document.getElementById("setskillModal");
+
+        // Get the button that opens the modal
+        var setskill_btn = document.getElementById("setskill-modal-btn");
+
+        // Get the <span> element that closes the modal
+        var span1 = document.getElementsByClassName("close")[0];
+
+        // When the user clicks the button, open the modal 
+        
+        // When the user clicks on <span> (x), close the modal
+        span1.onclick = function() {
+            setskill_modal.style.display = "none";
+        }
+        document.getElementById('cancel-skill').onclick = function(){
+            setskill_modal.style.display = "none";
+        }
+        // document.getElementById("setskill_cancel").onclick = function(){
+        //     logout_modal.style.display = "none";
+        // };
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == setskill_modal) {
+                setskill_modal.style.display = "none";
+            }
+        }
+
+        setskill_btn.onclick = function() {
+            var skills = new Array();
+            document.querySelectorAll('#skill').forEach(elt => {
+                if(elt.value.trim().length > 0){
+                    skills.push(elt.value);
+                }
+            });
+            document.querySelector('.skill-list ol').innerHTML = "";
+            if(skills.length < 2){
+                alert('You have to enter a minimum of two skillset');
+            }else{
+                skills.forEach(skill => {
+                    document.querySelector('.skill-list ol').innerHTML += "<li>" + skill + "</li>";
+                });
+                setskill_modal.style.display = "block";
+                document.getElementById('upload-skill').onclick = function(){
+                    axios.post('/uploadSkill',{
+                        skills: skills
+                    }).then((res) => {
+                        if(res.data.success === true){
+                            setskill_modal.style.display = "none";
+                            document.getElementById('upload-success').style.display = 'block';
+                        }
+                    }).catch((err) => {
+
+                    });
+                }
+
+            }
+        }
+
+        document.getElementById('add-field').onclick = function(){
+            var div = document.createElement('div');
+            div.setAttribute('class', 'skill-field');
+            var span = document.createElement('span');
+            var text = document.createElement('input');
+            text.setAttribute('type', 'text');
+            text.setAttribute('id', 'skill');
+            span.appendChild(text);
+            var button = document.createElement('button');
+            button.setAttribute('class', 'remove');
+            button.setAttribute('id', 'remove');
+            button.innerHTML = "&cross;";
+            button.onclick = function(){
+                if(document.querySelectorAll('.remove').length <= 2){
+                    alert("You can't enter less than two (2) skills/interests");
+                }else{
+                    div.remove();
+                }
+                
+            }
+            div.appendChild(span);
+            div.appendChild(button);
+
+            document.getElementById('enter-skill').appendChild(div);
+        }
+        function remove(){
+            document.querySelectorAll('.remove').forEach(elt => {
+                elt.onclick = function(){
+                    if(document.querySelectorAll('.remove').length <= 2){
+                        alert("You can't enter less than two (2) skills/interests");
+                    }else{
+                        elt.parentElement.remove();
+                    }
+                }
+            });
+        }
+        remove();
+    </script>
+</html>
