@@ -982,6 +982,7 @@ button.remove{
 .selected-submit{
     float: right;
     margin-top: 30px;
+    margin-bottom:  50px
 }
 .selected-appreciation{
     width: 98%;
