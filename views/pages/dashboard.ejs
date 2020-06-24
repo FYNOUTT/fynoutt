@@ -329,14 +329,14 @@
                         document.getElementById('closed-contribs').style.display = 'none';
                         document.getElementById("copy-btn").textContent = "Copy Open Link";
                         document.getElementById('open-contribs').style.display = 'block';
-                        document.getElementById('copy-value').value = 'fynoutt.herokuapp.com:3000/open/<%= user.id %>';
+                        document.getElementById('copy-value').value = 'fynoutt.herokuapp.com/open/<%= user.id %>';
                         document.getElementById('copy-name').textContent = 'Open Ended';
                         // document.getElementById('chartContainer').style.display = 'none';
                     }else{
                         document.getElementById('open-contribs').style.display = 'none';
                         document.getElementById("copy-btn").textContent = "Copy Selected Link";
                         document.getElementById('closed-contribs').style.display = 'block';
-                        document.getElementById('copy-value').value = 'fynoutt.herokuapp.com:3000/selected/<%= user.id %>';
+                        document.getElementById('copy-value').value = 'fynoutt.herokuapp.com/selected/<%= user.id %>';
                         document.getElementById('copy-name').textContent = 'Selected';
                         window.scrollTo({ top: 0, behavior: 'smooth' });
                         // document.getElementById('chartContainer').style.display = 'block';
