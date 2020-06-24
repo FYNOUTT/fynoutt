@@ -892,6 +892,7 @@ button.remove{
 .select-list{
     max-width: 500px;
     margin: auto;
+    margin-bottom: 50px;
 }
 .select-list h6{
     font-size: large;
