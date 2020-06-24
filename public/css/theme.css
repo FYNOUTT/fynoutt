@@ -59,25 +59,25 @@ nav h2 .sign-btn{
     float: right;
 }
 .sign-btn button{
-    border: 0;
+    /* border: 0;
     font-family: monospace;
     padding: 0;
     background-color: whitesmoke;
     color: rgb(6, 7, 68);
     border: 1px solid rgb(255, 255, 255);
-    bottom: 0;
+    bottom: 0; */
 }
 .login-btn{
-    border: 0;
+    /* border: 0;
     font-family: monospace;
     padding: 0;
     background-color: whitesmoke;
     color: rgb(6, 7, 68);
-    border: 1px solid rgb(255, 255, 255);
+    border: 1px solid rgb(255, 255, 255); */
     float: left;
 }
 
-.home{rgb(255, 255, 255)
+.home{
     float: right;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: medium;
@@ -224,7 +224,7 @@ main{
 }
 .how-it-works a:hover{
     text-decoration: none;
-}
+}rgb(255, 255, 255)rgb(255, 255, 255)
 .second-view{
     height: 100vh;
     padding-top: 100px;
@@ -720,8 +720,8 @@ button.logout{
     padding-right: 10%;
 }
 .circle-open{
-    width: 130px;
-    height: 130px;
+    width: 150px;
+    height: 150px;
     background: rgb(6, 7, 68);
     color: rgb(255, 255, 255);
     box-shadow: none;
