@@ -89,7 +89,7 @@ userSchema.methods.validPassword = function(password) {
 async function getUserByProviderId(providerId) {
     return await UserModel.findOne({ providerId }).exec()
 }
-export { getUserById, getUserByEmail, getUserByProviderId}
+// export { getUserById, getUserByEmail, getUserByProviderId}
 
 // create the model for users and expose it to our app
 module.exports = mongoose.model('User', userSchema);
