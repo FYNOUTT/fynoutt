@@ -1,9 +1,31 @@
 {
-  "name": "100squares",
+  "name": "fynoutt",
   "version": "1.0.0",
+  "description": "A Survey Platform",
   "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./build/server.js",
+    "start-dev": "nodemon"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FYNOUTT/fynoutt.git"
+  },
+  "keywords": [
+    "passion",
+    "skills",
+    "interest",
+    "discovery"
+  ],
+  "author": "OLAOPA VICTOR",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FYNOUTT/fynoutt/issues"
+  },
   "dependencies": {
     "animate.css": "^4.1.0",
+    "await-to-js": "^2.1.1",
     "axios": "^0.19.2",
     "bcrypt-nodejs": "0.0.3",
     "cloudinary": "^1.21.0",
@@ -25,6 +47,8 @@
     "nodemailer-smtp-transport": "^2.7.4",
     "nodemon": "^2.0.4",
     "passport": "^0.4.1",
+    "passport-google-oauth": "^2.0.0",
+    "passport-google-oauth2": "^0.2.0",
     "passport-local": "^1.0.0"
   }
 }

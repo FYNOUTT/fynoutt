@@ -8,8 +8,8 @@ var bcrypt   = require('bcrypt-nodejs');
 var userSchema = mongoose.Schema({
 
     local            : {
-        email           : String,
-        password        : String
+        email           : { type: String, required: true},
+        password        : { type: String, required: true}
     },
     facebook         : {
         id           : String,
@@ -24,16 +24,18 @@ var userSchema = mongoose.Schema({
         username     : String
     },
     google           : {
-        id           : String,
-        token        : String,
-        email        : String,
-        name         : String
+        provider: String,
+        providerId: String,
+        firstName: String,
+        lastName: String,
+        displayName: String,
+        email: String
     },
     firstname       : {
-        type:   String
+        type:   { type: String, required: true}
     },
     lastname        : {
-        type:   String
+        type:   { type: String, required: true}
     },
     others          : {
         type:   String
@@ -83,6 +85,11 @@ userSchema.methods.generateHash = function(password) {
 userSchema.methods.validPassword = function(password) {
     return bcrypt.compareSync(password, this.local.password);
 };
+
+async function getUserByProviderId(providerId) {
+    return await UserModel.findOne({ providerId }).exec()
+}
+export { getUserById, getUserByEmail, getUserByProviderId}
 
 // create the model for users and expose it to our app
 module.exports = mongoose.model('User', userSchema);

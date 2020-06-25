@@ -81,6 +81,8 @@
             if(choiceValue.trim() === ""){
                 alert("Select Something..");
             }else{
+                document.getElementById('selected-submit').textContent = 'Sending...';
+                document.getElementById('selected-submit').disabled = true;
                 axios.post('/selectedSubmit/<%= user.id %>', {
                     choice: choiceValue
                 }).then((res) => {

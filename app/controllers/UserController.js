@@ -15,18 +15,22 @@ require('dotenv').config();
 
 exports.dashboard = async(req, res) => {
   var contributors = [];
+  // Find all users who have made an open contribution to the requested user.
   for(i=0; i<req.user.open_contribs.length; i++){
     await User.findOne({_id  :   req.user.open_contribs[i].contributor}, function(err, user){
       contributors.push(user.firstname + " " + user.lastname + " " + user.others);
     });
   }
 
+  // Create two arrays
   var selectArr = new Array();
   var selectors = new Array();
   for(i=0; i<req.user.skillset.length; i++){
+    // Make each of the two arrays multi-dimensional.
     selectArr[i] = new Array();
     selectors[i] = new Array();
-    // await User.find({_id : req.user.id}, function(err, user){
+    // await User.find({_id : req.user.id}, function(err, user){an
+
       for(j=0; j<req.user.selected_contribs.length; j++){
         if(req.user.selected_contribs[j].choice === req.user.skillset[i]){
           await User.findOne({_id : req.user.selected_contribs[j].contributor}, function(err, selector){
