@@ -7,6 +7,10 @@
     "start": "node server.js",
     "start-dev": "nodemon"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FYNOUTT/fynoutt.git"
+  },
   "keywords": [
     "passion",
     "skills",
