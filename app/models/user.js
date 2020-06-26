@@ -32,10 +32,10 @@ var userSchema = mongoose.Schema({
         email: String
     },
     firstname       : {
-        type:   { type: String, required: true}
+        type: String, required: true
     },
     lastname        : {
-        type:   { type: String, required: true}
+        type: String, required: true
     },
     others          : {
         type:   String
