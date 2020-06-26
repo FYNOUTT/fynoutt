@@ -86,9 +86,9 @@ userSchema.methods.validPassword = function(password) {
     return bcrypt.compareSync(password, this.local.password);
 };
 
-async function getUserByProviderId(providerId) {
-    return await UserModel.findOne({ providerId }).exec()
-}
+// async function getUserByProviderId(providerId) {
+//     return await UserModel.findOne({ providerId }).exec()
+// }
 // export { getUserById, getUserByEmail, getUserByProviderId}
 
 // create the model for users and expose it to our app
