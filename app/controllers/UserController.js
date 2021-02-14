@@ -167,24 +167,11 @@ exports.sendToken = function (req, res, next) {
                 return res.redirect('/signup');
             }
   
-            const oauth2Client = new OAuth2(
-                process.env.AUTH_CLIENT_ID, // ClientID
-                process.env.AUTH_CLIENT_SECRET, // Client Secret
-                "https://developers.google.com/oauthplayground" // Redirect URL
-            );  
-            oauth2Client.setCredentials({
-            refresh_token: process.env.REFRESH_TOKEN
-            });
-            const accessToken = oauth2Client.getAccessToken();
             const transporter = nodemailer.createTransport({
               service: "gmail",
               auth: {
-                      type: "OAuth2",
-                      user: process.env.EMAIL, 
-                      clientId: process.env.AUTH_CLIENT_ID,
-                      clientSecret: process.env.AUTH_CLIENT_SECRET,
-                      refreshToken: process.env.REFRESH_TOKEN,
-                      accessToken: accessToken
+                      user: process.env.EMAIL,
+                      pass: process.env.EMAIL_PASS
               }
             });
             // Send the email
@@ -209,7 +196,7 @@ exports.sendToken = function (req, res, next) {
       }
 
   });
-};
+}; 
 
 
 
@@ -237,24 +224,11 @@ exports.forgot = (req, res, next) => {
       });
     },
     function(token, user, done) {
-      const oauth2Client = new OAuth2(
-        process.env.AUTH_CLIENT_ID, // ClientID
-        process.env.AUTH_CLIENT_SECRET, // Client Secret
-        "https://developers.google.com/oauthplayground" // Redirect URL
-      );
-      oauth2Client.setCredentials({
-        refresh_token: process.env.REFRESH_TOKEN
-      });
-      const accessToken = oauth2Client.getAccessToken();
       const smtpTransport = nodemailer.createTransport({
         service: "gmail",
         auth: {
-             type: "OAuth2",
-             user: process.env.EMAIL, 
-             clientId: process.env.AUTH_CLIENT_ID,
-             clientSecret: process.env.AUTH_CLIENT_SECRET,
-             refreshToken: process.env.REFRESH_TOKEN,
-             accessToken: accessToken
+             user: process.env.EMAIL,
+             pass: process.env.EMAIL_PASS
         }
       });
       var mailOptions = {
@@ -312,24 +286,11 @@ exports.reset = (req, res) => {
       });
     },
     function(user, done) {
-      const oauth2Client = new OAuth2(
-        process.env.AUTH_CLIENT_ID, // ClientID
-        process.env.AUTH_CLIENT_SECRET, // Client Secret
-        "https://developers.google.com/oauthplayground" // Redirect URL
-      );
-      oauth2Client.setCredentials({
-        refresh_token: process.env.REFRESH_TOKEN
-      });
-      const accessToken = oauth2Client.getAccessToken();
       const smtpTransport = nodemailer.createTransport({
         service: "gmail",
         auth: {
-             type: "OAuth2",
-             user: process.env.EMAIL, 
-             clientId: process.env.AUTH_CLIENT_ID,
-             clientSecret: process.env.AUTH_CLIENT_SECRET,
-             refreshToken: process.env.REFRESH_TOKEN,
-             accessToken: accessToken
+             user: process.env.EMAIL,
+             pass: process.env.EMAIL_PASS
         }
       });
       var mailOptions = {
